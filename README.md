@@ -1,3 +1,3 @@
 # LeetCodes
 
-This repository Contains all the leetcodes I solve everyday 
+This repository contains all the leetcodes I solve everyday.
