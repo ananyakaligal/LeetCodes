@@ -17,13 +17,13 @@ public:
             int mid=start+(end-start)/2;
             int numb=guess(mid);
 
-            if (numb==-1){
-                end=mid-1;
+            if (numb==0){
+                return mid;
             }
             else if (numb==1){
                 start=mid+1;
             }
-            else return mid;   
+            else end=mid-1;   
         }
         return -1;
     }
