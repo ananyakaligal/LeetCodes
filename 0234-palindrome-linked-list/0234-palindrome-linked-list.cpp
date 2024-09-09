@@ -11,16 +11,37 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        vector<int> listVals;
-        while(head){
-            listVals.push_back(head->val);
-            head=head->next;
+        if(!head) return true;
+        ListNode *fast=head, *slow=head,*back=NULL;
+
+        while(fast && fast->next){
+            // cout<<slow->val<<",,"<<fast->val<<endl;
+            fast = fast->next->next;
+
+            ListNode * nxt = slow->next;
+            slow->next = back;
+            back = slow;
+
+            slow = nxt;
         }
-        int left = 0, right = listVals.size() - 1;
-        while (left < right && listVals[left] == listVals[right]) {
-            left++;
-            right--;
+            // cout<<slow->next->val<<",,"<<back->val<<endl;
+        ListNode *p=slow,*q;
+        if(!fast){
+            q=back;
         }
-        return left >= right;
+        else{
+            p=slow->next;
+            q=back;
+        }
+
+        // cout<<p->val<<",,"<<q->val<<endl;
+
+        while(p){
+            if(p->val!=q->val) return false;
+            p=p->next;
+            q=q->next;
+        }
+
+        return true;
     }
 };
