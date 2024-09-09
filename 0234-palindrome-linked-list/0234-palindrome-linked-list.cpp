@@ -15,7 +15,6 @@ public:
         ListNode *fast=head, *slow=head,*back=NULL;
 
         while(fast && fast->next){
-            // cout<<slow->val<<",,"<<fast->val<<endl;
             fast = fast->next->next;
 
             ListNode * nxt = slow->next;
@@ -24,7 +23,6 @@ public:
 
             slow = nxt;
         }
-            // cout<<slow->next->val<<",,"<<back->val<<endl;
         ListNode *p=slow,*q;
         if(!fast){
             q=back;
@@ -33,8 +31,6 @@ public:
             p=slow->next;
             q=back;
         }
-
-        // cout<<p->val<<",,"<<q->val<<endl;
 
         while(p){
             if(p->val!=q->val) return false;
