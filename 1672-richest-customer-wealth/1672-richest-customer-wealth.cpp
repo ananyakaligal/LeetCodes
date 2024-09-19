@@ -10,7 +10,7 @@ public:
             for(int j=0;j<y;j++){
                 sum+=accounts[i][j];
             }
-            if(sum>maximum) maximum=sum;
+            maximum=max(sum,maximum);
         }
         return maximum;
     }
