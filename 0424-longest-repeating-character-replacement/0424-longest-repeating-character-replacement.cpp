@@ -1,21 +1,20 @@
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-        int l=0, r=0, max_count=0, max_len=0;
-        unordered_map<char,int> charCount;
-
-        while(r<s.length()){
-            charCount[s[r]]++;
-            max_count=max(max_count, charCount[s[r]]);
-
-            if((r-l+1)-max_count>k){
-                charCount[s[l]]--;
+        int n = s.size(), l = 0, r = 0, len = 0, maxf = 0;
+        vector<int> hash(26, 0);
+        while (r < n) {
+            hash[s[r] - 'A']++;
+            maxf = max(maxf, hash[s[r] - 'A']);
+            while ((r - l + 1) - maxf > k) {
+                hash[s[l] - 'A']--;
                 l++;
             }
-
-            max_len=max(r-l+1,max_len);
+            if ((r - l + 1) - maxf <= k) {
+                len = max(len, r - l + 1);
+            }
             r++;
         }
-        return max_len;
+        return len;
     }
 };
