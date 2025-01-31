@@ -12,7 +12,6 @@
 <strong>Explanation:</strong> The nodes that should be removed are 5, 2 and 3.
 - Node 13 is to the right of node 5.
 - Node 13 is to the right of node 2.
-- Node 8 is to the right of node 3.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
